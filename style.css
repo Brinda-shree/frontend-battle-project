@@ -1,0 +1,489 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Changed from Montserrat to Poppins as per your CSS */
+  background-color: #fdf5f9;
+  color: #333;
+  scroll-behavior: smooth;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fdf5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.loader-logo {
+  width: 500px;
+  opacity: 0;
+  animation: fadeInZoom 2s forwards;
+}
+
+@keyframes fadeInZoom {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #e91e63;
+}
+
+/* Homepage Hero */
+body.loaded .homepage-hero {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Consolidated homepage-hero styles */
+.homepage-hero {
+  position: relative; /* Essential for ripple positioning */
+  width: 100%;
+  height: 100vh;
+  background-image: url('hero-bg.jpg'); /* Use your premium background image here */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Adjust text color for contrast */
+  overflow: hidden; /* Important to contain the ripples */
+  opacity: 0; /* Initial state for loader transition */
+  transform: scale(0.95); /* Initial state for loader transition */
+  transition: opacity 1s ease, transform 1s ease; /* Transition for loader */
+}
+
+.homepage-hero h1, .homepage-hero p { /* More specific selector for text */
+  z-index: 1;
+  text-align: center;
+}
+
+.cta-btn {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background-color: #e91e63;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1;
+}
+
+.cta-btn:hover {
+  background-color: #c2185b;
+}
+
+/* Ripple Styles */
+.ripple-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allows clicks to pass through to elements below if needed */
+}
+
+.ripple-circle {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.7); /* White ripple, semi-transparent */
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    animation: ripple-animation 1s forwards; /* Animation duration */
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(2); /* Expand to 2 times its initial size */
+        opacity: 0; /* Fade out */
+        border-width: 0px; /* Fade out border */
+    }
+}
+
+/* Sections */
+section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #e91e63;
+}
+
+/* About */
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Stats */
+.stats-section {
+  background-color: #fff;
+}
+
+#salesChart {
+  margin-top: 2rem;
+}
+
+/* Products */
+.products-section {
+  background-color: #fdf5f9;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  perspective: 1000px;
+  width: 280px;
+  height: 400px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.product-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+.card-back button {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: #e91e63;
+  border: none;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Customers Section - NEW STYLES */
+.customer-section { /* Renamed from .customers-section to align with HTML */
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    /* height: 100vh; /* Make it full viewport height - uncomment if you want this specific section to be full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 5rem 20px; /* Maintain section padding, added bottom for CTA */
+    box-sizing: border-box;
+    background-color: #000; /* Black background like in the video */
+    color: #fff; /* Ensure text is visible on dark background */
+}
+
+.customer-section h2 {
+    color: #fff; /* Override section H2 color for dark background */
+    margin-bottom: 3rem; /* More space for the logos */
+}
+
+.logo-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for logos */
+    gap: 100px 200px; /* Adjust spacing between logos */
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Max width for the grid */
+    position: relative;
+}
+
+.customer-logo {
+    opacity: 0; /* Hidden by default */
+    filter: grayscale(100%); /* Grayscale effect */
+    max-width: 150px; /* Max size for logos */
+    height: auto;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade in/out */
+}
+
+/* JavaScript will add this class to show logos */
+.customer-logo.visible {
+    opacity: 1;
+}
+
+.customer-cta-wrapper {
+    position: absolute; /* Changed from relative to absolute for positioning */
+    bottom: 10%; /* Position above the bottom */
+    transform: translateX(-100vw); /* Start off-screen to the left */
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-in-out; /* Slide in animation */
+    z-index: 10;
+}
+
+.customer-cta-wrapper.active {
+    transform: translateX(0); /* Slide into view */
+    opacity: 1;
+}
+
+.customer-cta-button {
+    background-color: #2c2c2c; /* Dark background for button */
+    color: #fff;
+    border: 1px solid #444; /* Subtle border */
+    padding: 15px 30px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.customer-cta-button:hover {
+    background-color: #3a3a3a;
+}
+
+.cursor {
+    display: inline-block;
+    vertical-align: middle;
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+
+.arrow-icon {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+/* Responsive adjustments for customers section */
+@media (max-width: 768px) {
+    .logo-grid-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: 50px;
+        max-width: 400px;
+    }
+
+    .customer-logo {
+        max-width: 100px;
+    }
+
+    .customer-cta-wrapper {
+        bottom: 5%; /* Adjust for smaller screens */
+        position: relative; /* Change to relative for better flow on small screens */
+        transform: translateX(0); /* Remove initial transform if relative */
+        margin-top: 3rem; /* Add space below logos */
+        opacity: 1; /* Always visible if relative */
+    }
+    .customer-cta-wrapper.active { /* This class becomes less relevant with relative positioning */
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Reviews */
+.reviews-section .review-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stars {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin: 0.5rem 0;
+}
+
+/* Contact */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 1rem;
+  background-color: #e91e63;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+/* Light/Dark mode */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #eee;
+}
+
+.dark-mode .navbar {
+  background-color: #222;
+}
+
+.dark-mode section { /* General dark mode for sections */
+  background-color: #1a1a1a;
+}
+
+/* Override specific section backgrounds for dark mode if needed */
+.dark-mode .stats-section,
+.dark-mode .reviews-section .review-card,
+.dark-mode .product-card .card-back {
+    background-color: #222; /* Darker background for light elements in dark mode */
+}
+
+.dark-mode .about-section p,
+.dark-mode .contact-form input,
+.dark-mode .contact-form textarea {
+    color: #eee;
+    border-color: #555;
+    background-color: #333;
+}
+
+
+#mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 99;
+  transition: background-color 0.3s;
+}
+
+#mode-toggle:hover {
+  background-color: #ffb700;
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #e91e63;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  z-index: 99;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top.show {
+  display: block;
+  opacity: 1;
+}
+
+/* For better visibility in dark mode */
+.dark-mode .back-to-top {
+    background-color: #c2185b;
+}

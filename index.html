@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glow Beauty ✨</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="loader">
+    <img src="logo.png" alt="Glow Beauty Logo" class="loader-logo">
+  </div>
+
+  <a href="#home" class="back-to-top">↑</a>
+
+  <button id="mode-toggle">🌙</button>
+
+  <nav class="navbar">
+    <img src="logo.png" alt="Glow Beauty Logo" class="logo" />
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#stats">Stats</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#customers">Customers</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home" class="homepage-hero">
+    <h1>Welcome to Glow Beauty</h1>
+    <p>Discover your radiance.</p>
+    <button class="cta-btn">Shop Now</button>
+    <div class="ripple-container"></div>
+  </header>
+
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>Glow Beauty crafts luxury skincare & makeup with premium ingredients to enhance your natural glow.</p>
+  </section>
+
+  <section id="stats" class="stats-section">
+    <h2>Our Growth</h2>
+    <canvas id="salesChart" width="600" height="400"></canvas>
+  </section>
+
+  <section id="products" class="products-section">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card" data-aos="zoom-in">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="product1.jpg" alt="Luxury Serum" />
+          </div>
+          <div class="card-back">
+            <h3>Luxury Serum</h3>
+            <p>Glow-enhancing formula</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="product2.jpg" alt="Hydrating Mist" />
+          </div>
+          <div class="card-back">
+            <h3>Hydrating Mist</h3>
+            <p>Instant skin refresh</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="product3.jpg" alt="Velvet Lipstick" />
+          </div>
+          <div class="card-back">
+            <h3>Velvet Lipstick</h3>
+            <p>Rich color & comfort</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="customers" class="customers-section">
+  <h2>Our Happy Customers</h2>
+
+<section id="customers" class="customer-section">
+    <div class="logo-grid-container">
+        <img src="customer1.png" alt="Customer 1" />
+        <img src="customer2.png" alt="Customer 2" />
+        <img src="customer3.png" alt="Customer 3" />
+        <img src="customer4.png" alt="Customer 4" />
+        <img src="customer5.png" alt="Customer 5" />
+        <img src="customer6.png" alt="Customer 6" />
+    </div>
+    <div class="customer-cta-wrapper">
+        <button class="customer-cta-button" id="customerCtaButton">
+            <span id="ctaText"></span><span class="cursor">|</span>
+            <span class="arrow-icon">&gt;</span>
+        </button>
+    </div>
+</section>
+
+
+  <section id="reviews" class="reviews-section">
+    <h2>Customer Reviews</h2>
+    <div class="review-card" data-aos="fade-up">
+      <p>"Absolutely love the serum! My skin is glowing."</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>- Priya S.</p>
+    </div>
+
+    <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+      <p>"Fantastic products and great customer service."</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>- Anita K.</p>
+    </div>
+
+    <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+      <p>"The velvet lipstick stays on all day! Highly recommend."</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>- Riya M.</p>
+    </div>
+
+    <div class="review-card" data-aos="fade-up" data-aos-delay="300">
+      <p>"Beautiful packaging and very effective products."</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>- Sana A.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Get in Touch</h2>
+    <form class="contact-form" data-aos="fade-up">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Glow Beauty. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>
